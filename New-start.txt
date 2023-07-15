@@ -1,0 +1,53 @@
+
+
+=============== Module - 52 ( simple react router ) ==================
+
+1.route file e browserRouter er vitore path:'/; , element <> export kore dite hobe.
+
+2. app.js file e RouterPrivider er vitor router params pathai dite hobe.
+
+3. data load korte chaile path , & element er sathe loader: diye data fetch korte hobe.
+
+4. data show korar jonno element <> page a useLoaderData() maarte hobe then .map() chalate hobe.
+
+   *   {
+           contries.map(country => <li 
+           key={country.ccn3}
+           > <Link to={`/country/${country.name.common}`}>   =  ai path e jabe
+ 	   {country.name.common}  </Link>  </li>)
+       }
+
+
+5. data show korar por dynamic individual data show korar jonno nested routing korte hobe.
+
+
+   * {
+        path: '/country/:name' ,		*** ai :name ar params.name same hoite hobe.
+        loader: async ({params}) => {						
+           return fetch(`https://restcountries.com/v3.1/name/${params.name}
+           `) ;
+        },
+        element: <Country></Country>
+    }
+
+	
+
+6. idividual elemennt tay seLoaderData() diye data show korate hobe. (optional chaining kora laagte pare.) 
+
+
+
+
+***   const name = country?.name?.common ;
+      const {name} = country?.name?.common ;
+{/* in here ===> country?.name is not an object but a string value representing the country's name. That's why name is resulting undefined */} 
+
+
+
+
+
+
+
+
+
+
+
